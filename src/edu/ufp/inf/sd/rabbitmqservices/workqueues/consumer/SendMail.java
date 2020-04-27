@@ -1,4 +1,4 @@
-package edu.ufp.inf.sd.rabbitmqservices._02_workqueues.consumer;
+package edu.ufp.inf.sd.rabbitmqservices.workqueues.consumer;
 
 import com.sun.mail.smtp.SMTPTransport;
 
