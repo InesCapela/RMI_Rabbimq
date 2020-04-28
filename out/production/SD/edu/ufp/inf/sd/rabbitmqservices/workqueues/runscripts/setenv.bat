@@ -13,17 +13,17 @@
 @REM ======================== CHANGE BELOW ACCORDING YOUR PROJECT and PC SETTINGS ========================
 @REM ==== PC STUFF ====
 @Set WORKDRIVE=C
-@Set JDK="C:\Program Files\Java\jdk1.8.0_211"
-@Set NETBEANS=NetBeans
+@Set JDK="/home/maria/.jdks/corretto-1.8.0_252"
+@REM NETBEANS=NetBeans
 @Set INTELLIJ=IntelliJ
 @Set CURRENT_IDE=%INTELLIJ%
-@Set USERNAME=Ines
+@Set USERNAME=Maria
 
 @REM ==== JAVA NAMING STUFF ====
 @Set JAVAPROJ_NAME=SD
-@Set JAVAPROJ=%WORKDRIVE%:\Users\Ines\IdeaProjects\SD
-@Set RABBITMQ_SERVICES_FOLDER=edu/ufp/inf/sd/rabbitmqservices
-@Set RABBITMQ_SERVICES_PACKAGE=edu.ufp.inf.sd.rabbitmqservices
+@Set JAVAPROJ=%WORKDRIVE%:/home/maria/Documents/Sd
+@Set RABBITMQ_SERVICES_FOLDER=src/edu/ufp/inf/sd/rabbitmqservices
+@Set RABBITMQ_SERVICES_PACKAGE=src.edu.ufp.inf.sd.rabbitmqservices
 @Set PACKAGE=workqueues
 @Set QUEUE_NAME_PREFIX=work
 @Set PRODUCER_CLASS_PREFIX=NewTask

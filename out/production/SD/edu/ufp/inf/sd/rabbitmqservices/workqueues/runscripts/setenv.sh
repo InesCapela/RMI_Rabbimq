@@ -12,22 +12,22 @@ export SCRIPT_ROLE=$1
 
 #@REM ======================== CHANGE BELOW ACCORDING YOUR PROJECT and PC SETTINGS ========================
 #@REM ==== PC STUFF ====
-export JDK=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export NETBEANS=NetBeans
+export JDK=/home/maria/.jdks/corretto-1.8.0_252
+#export NETBEANS=NetBeans
 export INTELLIJ=IntelliJ
 export CURRENT_IDE=${INTELLIJ}
 #export CURRENT_IDE=¢{NETBEANS}
-export USERNAME=rui
+export USERNAME=Maria
 
 #@REM ==== JAVA NAMING STUFF ====
-export JAVAPROJ_NAME=SD
+export JAVAPROJ_NAME=Sd
 export JAVAPROJ=/Users/${USERNAME}/Documents/NetBeansProjects/${JAVAPROJ_NAME}
 export RABBITMQ_SERVICES_FOLDER=edu/ufp/inf/sd/rabbitmqservices
 export RABBITMQ_SERVICES_PACKAGE=edu.ufp.inf.sd.rabbitmqservices
-export PACKAGE=hello
-export QUEUE_NAME_PREFIX=hello
-export PRODUCER_CLASS_PREFIX=Send
-export CONSUMER_CLASS_PREFIX=Recv
+export PACKAGE=workqueues
+export QUEUE_NAME_PREFIX=work
+export PRODUCER_CLASS_PREFIX=NewTask
+export CONSUMER_CLASS_PREFIX=Worker
 
 #@REM ==== NETWORK STUFF ====
 export BROKER_HOST=localhost
