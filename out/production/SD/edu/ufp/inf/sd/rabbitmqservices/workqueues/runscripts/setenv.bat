@@ -20,7 +20,7 @@
 @Set USERNAME=Maria
 
 @REM ==== JAVA NAMING STUFF ====
-@Set JAVAPROJ_NAME=SD
+@Set JAVAPROJ_NAME=Sd
 @Set JAVAPROJ=%WORKDRIVE%:/home/maria/Documents/Sd
 @Set RABBITMQ_SERVICES_FOLDER=src/edu/ufp/inf/sd/rabbitmqservices
 @Set RABBITMQ_SERVICES_PACKAGE=src.edu.ufp.inf.sd.rabbitmqservices
@@ -67,12 +67,4 @@ IF "%CURRENT_IDE%"=="%INTELLIJ%" (
 
 @Set ABSPATH2CLASSES=%JAVAPROJ_CLASSES_FOLDER%
 @Set ABSPATH2SRC=%JAVAPROJ%/%JAVAPROJ_SRC%
-
-
-
-
-
-
-
-
 

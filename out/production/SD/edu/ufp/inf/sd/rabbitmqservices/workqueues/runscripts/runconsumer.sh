@@ -8,8 +8,7 @@ source ./setenv.sh consumer
 
 echo ${ABSPATH2CLASSES}
 cd ${ABSPATH2CLASSES}
-#clear
-#pwd  
+
 java -cp ${CLASSPATH} \
      ${JAVAPACKAGEROLEPATH}.${CONSUMER_CLASS_PREFIX} ${BROKER_HOST} ${BROKER_PORT} ${BROKER_QUEUE} %1
 

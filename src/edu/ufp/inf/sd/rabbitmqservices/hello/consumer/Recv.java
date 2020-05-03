@@ -49,8 +49,7 @@ public class Recv {
             //Use same username/passwd as the for accessing Management UI @ http://localhost:15672/
             //Default credentials are: guest/guest (change accordingly)
             factory.setUsername("guest");
-            //factory.setPassword("guest");
-            factory.setPassword("guest4rabbitmq");
+            factory.setPassword("guest");
             Connection connection=factory.newConnection();
             Channel channel=connection.createChannel();
 

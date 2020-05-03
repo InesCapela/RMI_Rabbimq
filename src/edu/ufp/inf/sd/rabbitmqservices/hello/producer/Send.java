@@ -41,17 +41,13 @@ public class Send {
         ConnectionFactory factory=new ConnectionFactory();
         factory.setHost("localhost");
         factory.setUsername("guest");
-        factory.setPassword("guest4rabbitmq");
+        factory.setPassword("guest");
 
         /* try-with-resources\. will close resources automatically in reverse order... avoids finally */
         try (//Create a channel, which is where most of the API resides
              Connection connection=factory.newConnection();
              Channel channel=connection.createChannel()
         ) {
-            /* We must declare a queue to send to; this is idempotent, i.e.,
-            it will only be created if it doesn't exist already;
-            then we can publish a message to the queue; The message content is a
-            byte array (can encode whatever we need). */
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             //channel.queueDeclare(QUEUE_NAME, true, false, false, null);
             String message="Hello World!";
