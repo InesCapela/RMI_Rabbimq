@@ -1,7 +1,5 @@
 package edu.ufp.inf.sd.rabbitmqservices.workqueues.consumer;
 
-import com.sun.mail.smtp.SMTPTransport;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -43,7 +41,7 @@ public class SendMail {
         // Get the default Session object.
         Session session = Session.getDefaultInstance(properties);
 
-        SMTPTransport t = null;
+      /*  SMTPTransport t = null;
 
         try {
             // Create a default MimeMessage object.
@@ -85,6 +83,6 @@ public class SendMail {
                     e.printStackTrace();
                 }
             }
-        }
+        }*/
     }
 }

@@ -14,7 +14,7 @@ public class ObserverImpl extends UnicastRemoteObject implements ObserverRI {
 
     private String id;
     private State lastObserverState;
-    protected SubjectRI subjectRI;
+    public SubjectRI subjectRI;
     protected ObserverGuiClient chatFrame;
 
     public ObserverImpl(String id, State lastObserverState, SubjectRI subjectRI, ObserverGuiClient chatFrame) throws RemoteException {
@@ -46,6 +46,11 @@ public class ObserverImpl extends UnicastRemoteObject implements ObserverRI {
         this.subjectRI = subjectRI;
         this.chatFrame = observerGuiClient;
         this.subjectRI.attach(this);
+    }
+
+    public ObserverImpl(String username, edu.ufp.inf.sd.rabbitmqservices.pubsub.chatgui.ObserverGuiClient observerGuiClient, SubjectRI subjectRI) throws RemoteException {
+        super();
+
     }
 
     @Override

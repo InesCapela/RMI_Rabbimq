@@ -1,5 +1,4 @@
 package edu.ufp.inf.sd.rabbitmqservices.util;
-
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -10,14 +9,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RabbitUtils {
+
     /**
-     *  Create a connection MAIL_TO_ADDR the rabbitmq server/broker
-     *  (abstracts the socket connection, protocol version negotiation and authentication, etc.)
+     * Create a connection to the rabbitmq server/broker
+     * (abstracts the socket connection, protocol version negotiation and authentication, etc.)
      */
-    public static Channel createConnection2Server(String username, String passwd) throws IOException, TimeoutException {
+    public static Connection newConnection2Server(String host, String username, String passwd) throws IOException, TimeoutException {
         //Create a factory for connection establishment
         ConnectionFactory factory=new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost(host);
         //Use same username/passwd as for accessing Management UI @ http://localhost:15672/
         //Default credentials are: guest/guest (change accordingly)
         factory.setUsername(username);
@@ -25,12 +25,20 @@ public class RabbitUtils {
 
         //Create a channel which offers most of the API methods MAIL_TO_ADDR rabbitmq broker
         Connection connection=factory.newConnection();
+        return connection;
+    }
+
+    /**
+     * Create a channel to the rabbitmq server/broker
+     */
+    public static Channel createChannel2Server(Connection connection) throws IOException, TimeoutException {
         Channel channel=connection.createChannel();
         return channel;
     }
 
     /**
-     * Selects the routing key MAIL_FROM_ADDR a set og keys
+     * Selects the routing key to a set og keys
+     *
      * @param setOfKeys
      * @param routingKeyIndex
      * @return
@@ -43,7 +51,8 @@ public class RabbitUtils {
     }
 
     /**
-     * Selects the message MAIL_FROM_ADDR a set of messages
+     * Selects the message from a set of messages
+     *
      * @param messages
      * @param messageIndex
      * @return
@@ -57,6 +66,7 @@ public class RabbitUtils {
 
     /**
      * Concatenates a set of strings, separated by a given delimiter
+     *
      * @param strings
      * @param delimiter
      * @param startMsgIndex
@@ -64,7 +74,7 @@ public class RabbitUtils {
      */
     public static String joinStrings(String[] strings, String delimiter, int startMsgIndex) {
         int length=strings.length;
-        Logger.getAnonymousLogger().log(Level.INFO, Thread.currentThread().getName()+ "->joinStrings(): strings.length=" + length);
+        Logger.getAnonymousLogger().log(Level.INFO, Thread.currentThread().getName() + "->joinStrings(): strings.length=" + length);
 
         if (length < startMsgIndex) {
             return "";
@@ -73,7 +83,8 @@ public class RabbitUtils {
         for (int i=startMsgIndex + 1; i < length; i++) {
             words.append(delimiter).append(strings[i]);
         }
-        Logger.getAnonymousLogger().log(Level.INFO, Thread.currentThread().getName()+ "->joinStrings(): words = " + words.toString());
+        Logger.getAnonymousLogger().log(Level.INFO, Thread.currentThread().getName() + "->joinStrings(): words = " + words.toString());
         return words.toString();
     }
+
 }
