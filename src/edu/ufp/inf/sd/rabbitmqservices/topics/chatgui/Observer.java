@@ -1,6 +1,7 @@
-package edu.ufp.inf.sd.rabbitmqservices.pubsub.chatgui;
+package edu.ufp.inf.sd.rabbitmqservices.topics.chatgui;
 
 import com.rabbitmq.client.*;
+import edu.ufp.inf.sd.rabbitmqservices.topics.producer.EmitLogTopic;
 import edu.ufp.inf.sd.rabbitmqservices.util.RabbitUtils;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class Observer {
     final String exchangeFormate = "UTF-8";
     String message;
 
-    BuiltinExchangeType exchangeType = BuiltinExchangeType.FANOUT;
+    BuiltinExchangeType exchangeType = BuiltinExchangeType.TOPIC;
     ObserverGuiClient guiClient;
 
     public Observer(ObserverGuiClient guiClient, String host, String user, String password) throws IOException, TimeoutException {
@@ -29,7 +30,7 @@ public class Observer {
     private void attachConsumerToChannelExchangeWithKey(Channel channel, String exchangename, String exchangeRoutingkey) throws IOException {
         String queueName = channel.queueDeclare().getQueue();
         String routingKey = "";
-        channel.queueBind(queueName, exchangename, routingKey);//*************
+        channel.queueBind(queueName, exchangename, routingKey);
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), "UTF-8");
@@ -42,6 +43,7 @@ public class Observer {
     }
 
     private void bindExchangeToChannelRabbitMq(Channel channel, String exchangename, BuiltinExchangeType exchangeType) throws IOException {
+        channel.queueBind(channel.queueDeclare().getQueue(), EmitLogTopic.EXCHANGE_NAME, exchangeRoutingkey);
         channel.exchangeDeclare(exchangename, exchangeType);
     }
 

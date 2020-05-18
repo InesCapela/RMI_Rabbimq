@@ -1,16 +1,15 @@
-package edu.ufp.inf.sd.rabbitmqservices.pubsub.chatgui;
+package edu.ufp.inf.sd.rabbitmqservices.topics.chatgui;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ObserverGuiClient extends javax.swing.JFrame {
+public class ObserverGuiClient extends JFrame {
 
 
     private Observer observer;
@@ -56,21 +55,21 @@ public class ObserverGuiClient extends javax.swing.JFrame {
     private void initComponents() {
 
         jFileChooser1 = new JFileChooser();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaChatHistory = new javax.swing.JTextArea();
-        jButtonSend = new javax.swing.JButton();
-        jTextFieldMsg = new javax.swing.JTextField();
-        jLabelUserID = new javax.swing.JLabel();
-        jTextFieldUsername = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItemExit = new javax.swing.JMenuItem();
-        jMenuItemSave = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItemCopy = new javax.swing.JMenuItem();
-        jMenuItemPaste = new javax.swing.JMenuItem();
+        jScrollPane1 = new JScrollPane();
+        jTextAreaChatHistory = new JTextArea();
+        jButtonSend = new JButton();
+        jTextFieldMsg = new JTextField();
+        jLabelUserID = new JLabel();
+        jTextFieldUsername = new JTextField();
+        jMenuBar1 = new JMenuBar();
+        jMenu1 = new JMenu();
+        jMenuItemExit = new JMenuItem();
+        jMenuItemSave = new JMenuItem();
+        jMenu2 = new JMenu();
+        jMenuItemCopy = new JMenuItem();
+        jMenuItemPaste = new JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jTextAreaChatHistory.setColumns(20);
         jTextAreaChatHistory.setLineWrap(true);
@@ -143,34 +142,34 @@ public class ObserverGuiClient extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                 .addComponent(jLabelUserID)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextFieldUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
-                                        .addComponent(jTextFieldMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFieldUsername, GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                                        .addComponent(jTextFieldMsg, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSend))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextFieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 246, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextFieldMsg, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButtonSend))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabelUserID)
-                                        .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jTextFieldUsername, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -268,19 +267,19 @@ public class ObserverGuiClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSend;
+    private JButton jButtonSend;
     private JFileChooser jFileChooser1;
-    private javax.swing.JLabel jLabelUserID;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemCopy;
-    private javax.swing.JMenuItem jMenuItemExit;
-    private javax.swing.JMenuItem jMenuItemPaste;
-    private javax.swing.JMenuItem jMenuItemSave;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaChatHistory;
-    private javax.swing.JTextField jTextFieldMsg;
-    private javax.swing.JTextField jTextFieldUsername;
+    private JLabel jLabelUserID;
+    private JMenu jMenu1;
+    private JMenu jMenu2;
+    private JMenuBar jMenuBar1;
+    private JMenuItem jMenuItemCopy;
+    private JMenuItem jMenuItemExit;
+    private JMenuItem jMenuItemPaste;
+    private JMenuItem jMenuItemSave;
+    private JScrollPane jScrollPane1;
+    private JTextArea jTextAreaChatHistory;
+    private JTextField jTextFieldMsg;
+    private JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }

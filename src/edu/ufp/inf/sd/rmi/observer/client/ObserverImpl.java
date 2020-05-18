@@ -48,10 +48,6 @@ public class ObserverImpl extends UnicastRemoteObject implements ObserverRI {
         this.subjectRI.attach(this);
     }
 
-    public ObserverImpl(String username, edu.ufp.inf.sd.rabbitmqservices.pubsub.chatgui.ObserverGuiClient observerGuiClient, SubjectRI subjectRI) throws RemoteException {
-        super();
-
-    }
 
     @Override
     public void update() throws RemoteException {

@@ -60,5 +60,4 @@ public class DBMockup {
         }
         return abooks;
     }
-
 }

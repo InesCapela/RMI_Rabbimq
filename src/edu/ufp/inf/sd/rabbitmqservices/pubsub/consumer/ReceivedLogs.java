@@ -1,8 +1,6 @@
 package edu.ufp.inf.sd.rabbitmqservices.pubsub.consumer;
 
-
 import com.rabbitmq.client.*;
-import edu.ufp.inf.sd.rabbitmqservices.pubsub.producer.EmitLog;
 import edu.ufp.inf.sd.rabbitmqservices.util.RabbitUtils;
 
 /**
@@ -53,7 +51,8 @@ public class ReceivedLogs {
         Channel channel=RabbitUtils.createChannel2Server(connection);
 
         /* Use the Exchange FANOUT type: broadcasts all messages to all queues */
-        channel.exchangeDeclare(EmitLog.EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
+        //channel.exchangeDeclare(EmitLog.EXCHANGE_NAME, BuiltinExchangeType.FANOUT);
+        channel.exchangeDeclare("logs_exchange", BuiltinExchangeType.FANOUT);
 
         /* Create a non-durable, exclusive, autodelete queue with a generated name.
            The string queueName will contains a random queue name (e.g. amq.gen-JzTY20BRgKO-HjmUJj0wLg) */
@@ -62,7 +61,8 @@ public class ReceivedLogs {
         /* Create binding: tell exchange to send messages to a queue;
            The fanout exchange ignores last parameter (routing/binding key) */
         String routingKey="";
-        channel.queueBind(queueName, EmitLog.EXCHANGE_NAME, routingKey);
+        //channel.queueBind(queueName, EmitLog.EXCHANGE_NAME, routingKey);
+        channel.queueBind(queueName,"logs_exchange", routingKey);
 
         System.out.println(" [*] Waiting for messages... to exit press CTRL+C");
 
