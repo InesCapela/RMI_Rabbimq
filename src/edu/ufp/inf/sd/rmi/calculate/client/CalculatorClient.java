@@ -2,6 +2,7 @@ package edu.ufp.inf.sd.rmi.calculate.client;
 
 import edu.ufp.inf.sd.rmi.calculate.server.CalculatorRI;
 import edu.ufp.inf.sd.rmi.util.rmisetup.SetupContextRMI;
+
 import java.rmi.RemoteException;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
@@ -58,7 +59,7 @@ public class CalculatorClient {
                 //Get service url (including servicename)
                 String serviceUrl = contextRMI.getServicesUrl(0);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "going to lookup service @ {0}", serviceUrl);
-                
+
                 //============ Get proxy to HelloWorld service ============
                 calculatorRI = (CalculatorRI) registry.lookup(serviceUrl);
             } else {
@@ -70,21 +71,20 @@ public class CalculatorClient {
         }
         return calculatorRI;
     }
-    
+
     private void playService() {
         try {
             //============ Call Claculator remote service ============
-            ArrayList<Float>n=new ArrayList<>();
+            ArrayList<Float> n = new ArrayList<>();
             n.add(1.0f);
             n.add(2.0f);
             n.add(3.0f);
 
-            System.out.println("SOMA"+this.calculatorRI.add(1,2));
+            System.out.println("SOMA" + this.calculatorRI.add(1, 2));
             this.calculatorRI.addA(n);
-            this.calculatorRI.sub(1,2);
-            this.calculatorRI.mult(1,2);
-            this.calculatorRI.div(1,2);
-
+            this.calculatorRI.sub(1, 2);
+            this.calculatorRI.mult(1, 2);
+            this.calculatorRI.div(1, 2);
 
 
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "going to finish, bye. ;)");

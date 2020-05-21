@@ -88,5 +88,4 @@ public class DigLibClient  {
             Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }
